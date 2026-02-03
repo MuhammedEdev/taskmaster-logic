@@ -10,7 +10,7 @@
 
 ## 🔗 Canlı Deneyim
 > [!TIP]
-> **[TaskMaster Logic Uygulamasını Başlatmak İçin Buraya Tıklayın!](https://KULLANICI_ADIN.github.io/taskmaster-logic/)**
+> **[TaskMaster Logic Uygulamasını Başlatmak İçin Buraya Tıklayın!](https://muhammededev.github.io/taskmaster-logics/)**
 
 ## 🔥 Neden "TaskMaster Logic"?
 

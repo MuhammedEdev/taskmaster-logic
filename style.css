@@ -1,0 +1,381 @@
+/* --- Değişkenler ve Temel Ayarlar --- */
+:root {
+    --accent: #8b5cf6;
+    --accent-glow: rgba(139, 92, 246, 0.4);
+    --bg-dark: #020617;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.08);
+    --danger: #ef4444;
+}
+
+/* Temel Sıfırlamalar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background: var(--bg-dark);
+    color: #f1f5f9;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    overflow: hidden;
+    /* Masaüstünde taşmayı engeller */
+}
+
+/* --- Dekoratif Arka Planlar --- */
+.cosmic-bg {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(30, 64, 175, 0.08) 0%, transparent 40%);
+    z-index: -2;
+}
+
+.light-orb {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 75%);
+    filter: blur(100px);
+    opacity: 0.12;
+    z-index: -1;
+    pointer-events: none;
+    transition: transform 0.2s cubic-bezier(0.1, 0.5, 0.2, 1);
+}
+
+/* --- Ana Uygulama Konteyneri --- */
+.app-core {
+    width: 100%;
+    max-width: 850px;
+    height: 85vh;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(35px);
+    border-radius: 32px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 40px 120px -20px rgba(0, 0, 0, 0.6);
+}
+
+/* Markalama ve İstatistikler */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.branding h1 {
+    font-weight: 800;
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    letter-spacing: -1.5px;
+}
+
+.branding h1 span {
+    color: var(--accent);
+    text-shadow: 0 0 15px var(--accent-glow);
+}
+
+.branding p {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+.badge {
+    background: var(--accent);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+
+/* Giriş Alanı Kullanıcı Deneyimi (UX) */
+.input-container form {
+    display: flex;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 6px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.input-container form:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
+}
+
+input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 12px 15px;
+    font-size: 1rem;
+}
+
+#addBtn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#addBtn:hover {
+    transform: scale(1.08);
+    filter: brightness(1.2);
+}
+
+/* --- İçerik Düzeni --- */
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Duyarlı (Responsive) Izgara Düzenlemesi */
+@media (max-width: 650px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .side-panel {
+        display: none !important;
+    }
+
+    /* Mobilde yan panel gizlenir */
+    .app-core {
+        height: 90vh;
+        padding: 20px;
+    }
+
+    body {
+        overflow-y: auto;
+    }
+}
+
+.task-viewer {
+    overflow-y: auto;
+    padding-right: 8px;
+    position: relative;
+}
+
+.task-viewer::-webkit-scrollbar {
+    width: 5px;
+}
+
+.task-viewer::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+}
+
+/* Liste Ögesi Stilleri */
+ul {
+    list-style: none;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    padding: 16px 20px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+li:hover {
+    border-color: var(--accent);
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+li span {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #cbd5e1;
+    line-height: 1.4;
+}
+
+li button {
+    background: transparent;
+    border: none;
+    color: var(--danger);
+    cursor: pointer;
+    padding: 8px;
+    transition: 0.3s;
+    opacity: 0.4;
+}
+
+li button:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Yan Panel Arayüzü */
+.side-panel {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.progress-box {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+svg {
+    transform: rotate(-90deg);
+}
+
+.rail {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 6;
+}
+
+.fill {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 6;
+    stroke-dasharray: 0 283;
+    transition: 0.8s ease;
+    stroke-linecap: round;
+}
+
+strong {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.status-info {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748b;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Boş Liste Durumu */
+.empty-notif {
+    text-align: center;
+    opacity: 0.25;
+    margin-top: 80px;
+    display: none;
+}
+
+.empty-notif.show {
+    display: block;
+    animation: float 3s infinite ease-in-out;
+}
+
+.empty-notif i {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+/* Alt Bilgi (Footer) */
+.bottom-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+}
+
+.danger-btn {
+    background: transparent;
+    border: 1px solid #ef444433;
+    color: var(--danger);
+    padding: 10px 18px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.danger-btn:hover {
+    background: var(--danger);
+    color: white;
+    border-color: var(--danger);
+}
+
+.quote {
+    font-size: 0.8rem;
+    color: #475569;
+    font-style: italic;
+    text-align: right;
+    max-width: 50%;
+}
+
+/* --- Animasyonlar --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Sadece Ekran Okuyucular İçin (Erişilebilirlik) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

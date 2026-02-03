@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster | Modern Verimlilik ve Görev Yönetimi</title>
+
+    <meta name="description"
+        content="TaskMaster ile günlük görevlerinizi kozmik bir arayüzde, yüksek odaklanma ile yönetin.">
+    <meta name="keywords" content="task manager, yapılacaklar listesi, productivity, verimlilik, me-dev">
+    <meta name="author" content="ME.DEV">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <span class="cosmic-bg" aria-hidden="true"></span>
+    <span id="light-orb" class="light-orb" aria-hidden="true"></span>
+
+    <main class="app-core">
+        <header class="top-bar">
+            <section class="branding">
+                <h1>TASK<span>MASTER</span></h1>
+                <p>Odağını Yönet | <time id="liveTime">00:00</time></p>
+            </section>
+            <section class="stats" aria-label="Görev İstatistikleri">
+                <mark class="badge">
+                    <i class="fas fa-layer-group"></i>
+                    <span id="activeCount">0</span> Aktif
+                </mark>
+            </section>
+        </header>
+
+        <section class="input-container" aria-labelledby="input-heading">
+            <h2 id="input-heading" class="sr-only">Yeni Görev Ekle</h2>
+            <form id="taskForm" onsubmit="return false;" role="search">
+                <input type="text" id="taskInput" placeholder="Sıradaki büyük adım nedir?" autocomplete="off"
+                    aria-label="Görev adı girin">
+                <button type="button" id="addBtn" aria-label="Görevi Listeye Ekle">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </form>
+        </section>
+
+        <section class="content-wrapper">
+            <article class="task-viewer">
+                <ul id="taskList" role="list">
+                </ul>
+                <aside id="emptyState" class="empty-notif" aria-live="polite">
+                    <i class="fas fa-wind"></i>
+                    <p>Zihin şu an özgür. Yeni bir rota belirle.</p>
+                </aside>
+            </article>
+
+            <aside class="side-panel">
+                <figure class="progress-box">
+                    <svg viewBox="0 0 100 100" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <circle class="rail" cx="50" cy="50" r="45"></circle>
+                        <circle id="progressArc" class="fill" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <strong id="progressPercent">0%</strong>
+                </figure>
+                <nav class="status-info">
+                    <span id="statusLabel">Sistem Hazır</span>
+                </nav>
+            </aside>
+        </section>
+
+        <footer class="bottom-nav">
+            <button id="resetBtn" class="danger-btn" title="Tüm verileri kalıcı olarak siler">
+                <i class="fas fa-trash-arrow-up"></i> Belleği Temizle
+            </button>
+            <blockquote id="quoteText" class="quote">
+                "Disiplin, özgürlüğün anahtarıdır."
+            </blockquote>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

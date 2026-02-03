@@ -35,6 +35,13 @@ Bu projeyi geliştirirken odak noktam sadece görsel değil, aynı zamanda sağl
 
 ---
 
+## 🕹️ Kullanım (How To Use)
+* **Görev Ekleme:** Ana giriş alanına görevinizi yazın ve Enter tuşuna veya ekle butonuna basın.
+* **Yönetim:** Tamamlanan görevleri işaretleyerek listenizi güncel tutun.
+* **Filtreleme & Temizleme:** Tamamlanan görevleri toplu olarak silebilir veya listenizi tek tıkla temizleyebilirsiniz.
+
+---
+
 ## 💡 Geliştirici Notu
 > "Bu proje, bir yazılımcının tasarım ve mantık arasındaki köprüyü nasıl kurduğunun bir kanıtıdır. TaskMaster Logic ile sadece görevleri değil, kodun akışını da disipline ettim."
 

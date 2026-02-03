@@ -43,4 +43,4 @@ Bu projeyi geliştirirken odak noktam sadece görsel değil, aynı zamanda sağl
 ### 📬 İletişim & Geri Bildirim
 Eğer projeyi beğendiyseniz bir ⭐ bırakmayı unutmayın! Geliştirme önerilerine her zaman açığım.
 
-**Muhammed** - *Frontend Developer & Logic Enthusiast*
+**MuhammedEdev** - *Frontend Developer & Logic Enthusiast*

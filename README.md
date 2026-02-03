@@ -8,9 +8,11 @@
 
 ---
 
-## 🔗 Canlı Deneyim
-> [!TIP]
-> **[TaskMaster Logic Uygulamasını Başlatmak İçin Buraya Tıklayın!](https://muhammededev.github.io/taskmaster-logics/)**
+## 🚀 Canlı Deneyim
+Uygulamayı şu an test edebilirsiniz:
+👉 [TaskMaster Logic Canlı Demo](https://muhammededev.github.io/taskmaster-logic/)
+
+---
 
 ## 🔥 Neden "TaskMaster Logic"?
 

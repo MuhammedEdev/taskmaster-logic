@@ -10,7 +10,7 @@
 
 ## 🚀 Canlı Deneyim
 Uygulamayı şu an test edebilirsiniz:
-👉 [TaskMaster Logic Canlı Demo](https://muhammededev.github.io/taskmaster-logic/)
+👉 [TaskMaster Logic Canlı](https://muhammededev.github.io/taskmaster-logic/)
 
 ---
 
